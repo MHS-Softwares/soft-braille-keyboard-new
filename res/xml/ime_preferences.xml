@@ -176,6 +176,7 @@
          android:defaultValue="@string/pref_use_accessibility_volume_default" />
          </PreferenceScreen>
          <PreferenceScreen
+             android:key="pref_text_to_speech_title_key"
              android:title="@string/pref_text_to_speech_title" >
          <ListPreference
              android:key="@string/pref_text_to_speech_engine_key"
