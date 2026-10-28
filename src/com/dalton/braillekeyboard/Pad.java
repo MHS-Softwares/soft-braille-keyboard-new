@@ -82,6 +82,8 @@ public abstract class Pad {
         HOLD_TWO_LEFT, HOLD_TWO_RIGHT, HOLD_TWO_UP, HOLD_TWO_DOWN,
         HOLD_FIVE_LEFT, HOLD_FIVE_RIGHT, HOLD_FIVE_UP, HOLD_FIVE_DOWN,
         LEFT_TWO_DOWN, RIGHT_TWO_DOWN,
+        LEFT_TWO_LEFT, LEFT_TWO_RIGHT, LEFT_TWO_UP,
+        RIGHT_TWO_LEFT, RIGHT_TWO_RIGHT, RIGHT_TWO_UP,
         TWO_FINGERS_DOWN, DOTS_FOUR_SIX_RIGHT, EMOJI_MODE, AUTOCAPS_TOGGLE;
 
         public static Swipe valueOf(int value) {
@@ -97,6 +99,14 @@ public abstract class Pad {
             final int VALUE_TWO_UP = 32;
             final int VALUE_LEFT_TWO_DOWN = 27; // was TWO_FINGERS_DOWN
             final int VALUE_RIGHT_TWO_DOWN = 13824;
+            // two fingers on dots 1+2 (left hand) or 4+5 (right hand) moving together: the direction of each
+            // dot is 3 bits (left=1, right=2, down=3, up=4), dot 1 at bit 0, dot 2 at bit 3, dot 4 at bit 9, dot 5 at bit 12
+            final int VALUE_LEFT_TWO_LEFT = 9;
+            final int VALUE_LEFT_TWO_RIGHT = 18;
+            final int VALUE_LEFT_TWO_UP = 36;
+            final int VALUE_RIGHT_TWO_LEFT = 4608;
+            final int VALUE_RIGHT_TWO_RIGHT = 9216;
+            final int VALUE_RIGHT_TWO_UP = 18432;
             final int VALUE_TWO_FINGERS_DOWN_PARTIAL_1 = 31;
             final int VALUE_TWO_FINGERS_DOWN_PARTIAL_2 = 59;
             final int VALUE_DOTS_FOUR_SIX_RIGHT = 66560;
@@ -213,6 +223,18 @@ public abstract class Pad {
                 return LEFT_TWO_DOWN;
             case VALUE_RIGHT_TWO_DOWN:
                 return RIGHT_TWO_DOWN;
+            case VALUE_LEFT_TWO_LEFT:
+                return LEFT_TWO_LEFT;
+            case VALUE_LEFT_TWO_RIGHT:
+                return LEFT_TWO_RIGHT;
+            case VALUE_LEFT_TWO_UP:
+                return LEFT_TWO_UP;
+            case VALUE_RIGHT_TWO_LEFT:
+                return RIGHT_TWO_LEFT;
+            case VALUE_RIGHT_TWO_RIGHT:
+                return RIGHT_TWO_RIGHT;
+            case VALUE_RIGHT_TWO_UP:
+                return RIGHT_TWO_UP;
             case VALUE_DOTS_FOUR_SIX_RIGHT:
                 return DOTS_FOUR_SIX_RIGHT;
             case VALUE_THREE_LEFT:
