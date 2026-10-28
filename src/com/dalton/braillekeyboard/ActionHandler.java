@@ -359,7 +359,8 @@ public class ActionHandler {
                         listener.commitText(entry.emoji, 1);
                         String displayName = (entry.name != null && !entry.name.isEmpty()) ? entry.name : entry.keyword;
                         message = context.getString(R.string.emoji_inserted) + displayName;
-                        emojiMode = false;
+                        // Stay in emoji mode with the search and the selected emoji untouched, so the same emoji can be
+                        // inserted several times in a row; the toggle gesture closes the mode.
                     } else message = context.getString(R.string.emoji_no_to_insert);
                     break;
                 default: emojiHandled = false;
